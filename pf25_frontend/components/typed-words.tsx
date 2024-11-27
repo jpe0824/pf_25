@@ -41,7 +41,7 @@ export function TypedWords() {
         setCurrentWords(newWords);
         setLastSelectedIndex(newIndex);
       }
-    }, 7000); // Switch every 7 seconds
+    }, 8000); // Switch every 7 seconds
 
     return () => clearInterval(intervalId);
   }, [currentWords, lastSelectedIndex]);
