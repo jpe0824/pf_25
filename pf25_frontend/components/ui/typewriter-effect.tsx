@@ -46,7 +46,11 @@ export const TypewriterEffect = ({
 
   const renderWords = () => {
     return (
-      <motion.div transition={{repeat: Infinity}} ref={scope} className="inline">
+      <motion.div
+        transition={{ repeat: Infinity }}
+        ref={scope}
+        className="inline"
+      >
         {wordsArray.map((word, idx) => {
           return (
             <div key={`word-${idx}`} className="inline-block">
@@ -156,10 +160,12 @@ export const TypewriterEffectSmooth = ({
           duration: 1,
           ease: "linear",
         }}
-        onClick={() => {console.log("ended")}}
+        onClick={() => {
+          console.log("ended");
+        }}
       >
         <div
-          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold"
+          className="text-xl sm:text-xl md:text-xl lg:text:xl xl:text-xl font-bold"
           style={{
             whiteSpace: "nowrap",
           }}
@@ -180,7 +186,7 @@ export const TypewriterEffectSmooth = ({
           repeatType: "reverse",
         }}
         className={cn(
-          "block rounded-sm w-[4px]  h-4 sm:h-6 xl:h-12 bg-blue-500",
+          "block rounded-sm w-[4px]  h-6 sm:h-6 xl:h-6 bg-blue-500",
           cursorClassName
         )}
       ></motion.span>

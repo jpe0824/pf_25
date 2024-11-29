@@ -3,6 +3,7 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
+  SidebarGroupAction,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
@@ -14,12 +15,18 @@ import {
   BadgeInfo,
   BriefcaseBusiness,
   Computer,
+  Github,
   Home,
+  LinkedinIcon,
+  Mail,
+  MessageSquare,
   Moon,
+  Phone,
   Scroll,
   Terminal,
 } from "lucide-react";
 import { TypedWords } from "./typed-words";
+import { ModeToggle } from "./mode-toggle";
 
 const items = [
   {
@@ -73,9 +80,66 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        <SidebarGroup />
+        <SidebarGroup>
+          <SidebarGroupLabel>Contact & Socials</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem key={"Phone"}>
+                <SidebarMenuButton asChild>
+                  <a href={`tel:${3073899307}`}>
+                    <Phone />
+                    <span>Phone</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem key={"Email"}>
+                <SidebarMenuButton asChild>
+                  <a href={`mailto:${"jason.e24@gmail.com"}`}>
+                    <Mail />
+                    <span>Email</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem key={"Github"}>
+                <SidebarMenuButton asChild>
+                  <a href="https://github.com/jpe0824" target="_blank">
+                    <Github />
+                    <span>Github</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem key={"Linkedin"}>
+                <SidebarMenuButton asChild>
+                  <a
+                    href="https://www.linkedin.com/in/jason-edman-140724241/"
+                    target="_blank"
+                  >
+                    <LinkedinIcon />
+                    <span>LinkedIn</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem key={"Discord"}>
+                <SidebarMenuButton asChild>
+                  <a
+                    href="https://discordapp.com/users/691278886666895382"
+                    target="_blank"
+                  >
+                    <MessageSquare />
+                    <span>Discord</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>Theme</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <ModeToggle></ModeToggle>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter />
     </Sidebar>
   );
 }
