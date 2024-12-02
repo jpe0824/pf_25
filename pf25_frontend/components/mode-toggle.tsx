@@ -1,16 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Moon, MoonIcon, Sun, SunIcon, SunMoon } from "lucide-react";
+import { Moon, SunIcon, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
-
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group";
 
 export function ModeToggle() {

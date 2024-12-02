@@ -1,8 +1,16 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { cookies } from "next/headers";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const cookieStore = await cookies();
+  const defaultOpen = cookieStore.get("sidebar:state")?.value === "true";
+
   return (
     <ThemeProvider
       attribute="class"
@@ -10,10 +18,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       enableSystem
       disableTransitionOnChange
     >
-      <SidebarProvider>
+      <SidebarProvider defaultOpen={defaultOpen}>
         <AppSidebar />
-        <main>
-          <SidebarTrigger />
+        <main className="flex justify-start w-screen">
+          <SidebarTrigger className="absolute m-2"/>
           {children}
         </main>
       </SidebarProvider>
