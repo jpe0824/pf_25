@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { TypedWords } from "./typed-words";
 import { ModeToggle } from "./mode-toggle";
+import dynamic from "next/dynamic";
 
 const items = [
   {
@@ -56,7 +57,7 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader>
-        <TypedWords />
+        {/* <TypedWords /> Disabled for now, needs fix */}
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>

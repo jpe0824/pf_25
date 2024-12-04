@@ -3,12 +3,12 @@
 import { BackgroundLines } from "@/components/ui/background-lines";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+// import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 export default function Landing() {
   const router = useRouter();
-  const textClass =
-    "max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center";
+  // const textClass =
+  //   "max-w-xl mx-auto text-sm md:text-lg text-neutral-700 dark:text-neutral-400 text-center";
 
   return (
     <>

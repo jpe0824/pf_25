@@ -1,4 +1,5 @@
-import { TimelineDemo } from "@/components/experience-timeline";
+import { ExperienceTimeline } from "@/components/experience-timeline";
+import { ProjectTimeline } from "@/components/project-timeline";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -429,12 +430,13 @@ export default function Home() {
           <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
             Experience
           </h1>
-          <TimelineDemo />
+          <ExperienceTimeline />
         </div>
         <div className="flex flex-col h-screen" id="projects">
           <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
             Projects
           </h1>
+          <ProjectTimeline />
         </div>
       </div>
     </div>
