@@ -30,7 +30,7 @@ export default function Landing() {
         <div className="py-10">
           <button
             type="button"
-            onClick={() => router.push("/home")}
+            onClick={() => router.push("/about")}
             className="p-[3px] relative"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-lakerpurple to-dodgerblue rounded-lg" />

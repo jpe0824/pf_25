@@ -1,9 +1,7 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
-  SidebarGroupAction,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
@@ -16,23 +14,21 @@ import {
   BriefcaseBusiness,
   Computer,
   Github,
-  Home,
   LinkedinIcon,
   Mail,
   MessageSquare,
-  Moon,
+  Newspaper,
   Phone,
   Scroll,
-  Terminal,
 } from "lucide-react";
 import { TypedWords } from "./typed-words";
 import { ModeToggle } from "./mode-toggle";
 
 const items = [
   {
-    title: "Home",
-    url: "/home",
-    icon: Home,
+    title: "Feed",
+    url: "/feed",
+    icon: Newspaper,
   },
   {
     title: "About",
@@ -41,12 +37,12 @@ const items = [
   },
   {
     title: "Experience",
-    url: "/experience",
+    url: "/about/#experience",
     icon: BriefcaseBusiness,
   },
   {
     title: "Projects",
-    url: "/projects",
+    url: "/about/#projects",
     icon: Computer,
   },
   {

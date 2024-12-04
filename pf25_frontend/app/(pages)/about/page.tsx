@@ -1,3 +1,4 @@
+import { TimelineDemo } from "@/components/experience-timeline";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,15 +9,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogHeader,
+//   DialogTitle,
+//   DialogTrigger,
+// } from "@/components/ui/dialog";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { MapPin, MoveDown, MoveUp } from "lucide-react";
-import Image from "next/image";
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageSquare,
+  MoveUp,
+  Phone,
+} from "lucide-react";
+// import Image from "next/image";
 import React from "react";
 
 interface SkillItemProps {
@@ -176,6 +185,12 @@ const backendSkills = [
     image: "/logos/universe.svg",
     keywords: [],
   },
+  {
+    value: "openai",
+    label: "OpenAI GPTs",
+    image: "/logos/openai-2.svg",
+    keywords: [],
+  },
 ];
 
 const devopsSkills = [
@@ -269,15 +284,15 @@ export default function Home() {
         <div className="flex justify-center">
           <Button variant="ghost">
             <MoveUp />
-            <span>Home</span>
+            <span>Feed</span>
           </Button>
         </div>
         <div className="">
           <Card>
             <CardHeader>
               <div className="flex flex-row items-center">
-                <Avatar>
-                  <AvatarImage src="https://github.com/jpe0824.png" />
+                <Avatar className="rounded-full">
+                  <AvatarImage src="/images/avatar.png" />
                   <AvatarFallback>JE</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col px-4">
@@ -299,11 +314,11 @@ export default function Home() {
               </p>
               <p>
                 Building applications from the ground up, or modernizing
-                outdated technologies into today's standard.
+                outdated technologies into today&apos;s standard.
               </p>
             </CardContent>
             <CardFooter>
-              <Dialog>
+              {/* <Dialog>
                 <DialogTrigger asChild>
                   <Button>More about Jason</Button>
                 </DialogTrigger>
@@ -311,8 +326,51 @@ export default function Home() {
                   <DialogHeader>
                     <DialogTitle>About Jason</DialogTitle>
                   </DialogHeader>
+                  <div className="flex flex-row">
+                    <Image
+                      src="/images/family.png"
+                      alt="family"
+                      width={300}
+                      height={300}
+                    />
+                    <div className="flex flex-col">
+                    </div>
+                  </div>
                 </DialogContent>
-              </Dialog>
+              </Dialog> */}
+              <div className="flex">
+                <Button variant="ghost" className="">
+                  <a href={`tel:${3073899307}`}>
+                    <Phone color="dodgerblue" />
+                  </a>
+                </Button>
+                <Button variant="ghost">
+                  <a href={`mailto:${"jason.e24@gmail.com"}`}>
+                    <Mail color="#FDB927" />
+                  </a>
+                </Button>
+                <Button variant="ghost">
+                  <a href="https://github.com/jpe0824" target="_blank">
+                    <Github />
+                  </a>
+                </Button>
+                <Button variant="ghost">
+                  <a
+                    href="https://www.linkedin.com/in/jason-edman-140724241/"
+                    target="_blank"
+                  >
+                    <Linkedin color="#0a66c2" />
+                  </a>
+                </Button>
+                <Button variant="ghost">
+                  <a
+                    href="https://discordapp.com/users/691278886666895382"
+                    target="_blank"
+                  >
+                    <MessageSquare color="#5865F2" />
+                  </a>
+                </Button>
+              </div>
             </CardFooter>
           </Card>
           <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
@@ -367,11 +425,16 @@ export default function Home() {
             </CardContent>
           </Card>
         </div>
-        <div className="flex justify-center">
-          <Button variant="ghost">
-            <MoveDown />
-            <span>Experience</span>
-          </Button>
+        <div className="flex flex-col" id="experience">
+          <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
+            Experience
+          </h1>
+          <TimelineDemo />
+        </div>
+        <div className="flex flex-col h-screen" id="projects">
+          <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
+            Projects
+          </h1>
         </div>
       </div>
     </div>
