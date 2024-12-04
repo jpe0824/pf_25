@@ -18,21 +18,251 @@ import {
 import { MapPin, MoveDown, MoveUp } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-// import avatar from "@/assets/images/avatar.png"
 
-const skills = [
+interface SkillItemProps {
+  skill: (typeof frontendSkills)[0];
+}
+
+const SkillItem: React.FC<SkillItemProps> = ({ skill }) => (
+  <div className="flex flex-row justify-content items-center my-2">
+    {/* <Image width={20} height={20} src={skill.image} alt={skill.label} /> */}
+    <Avatar className="h-6 w-6">
+      <AvatarImage src={skill.image} />
+      <AvatarFallback>UV</AvatarFallback>
+    </Avatar>
+    <div className="text-md text-muted-foreground ml-2 mr-4">{skill.label}</div>
+  </div>
+);
+
+const frontendSkills = [
   {
     value: "react",
     label: "React",
-    image: "../../../assets/logos/react.svg",
+    image: "/logos/react.svg",
+    keywords: [],
+  },
+  {
+    value: "react-native",
+    label: "React Native",
+    image: "/logos/react-native-1.svg",
+    keywords: [],
+  },
+  {
+    value: "nextjs",
+    label: "NextJS",
+    image: "/logos/next.svg",
+    keywords: [],
+  },
+  {
+    value: "angular",
+    label: "Angular",
+    image: "/logos/angular.svg",
+    keywords: [],
+  },
+  {
+    value: "tailwind",
+    label: "Tailwind",
+    image: "/logos/tailwind.svg",
+    keywords: [],
+  },
+  {
+    value: "figma",
+    label: "Figma",
+    image: "/logos/figma.svg",
+    keywords: [],
+  },
+  {
+    value: "javascript",
+    label: "JavaScript",
+    image: "/logos/js.svg",
+    keywords: [],
+  },
+  {
+    value: "typescript",
+    label: "TypeScript",
+    image: "/logos/typescript.svg",
+    keywords: [],
+  },
+  {
+    value: "html",
+    label: "HTML",
+    image: "/logos/html.svg",
+    keywords: [],
+  },
+  {
+    value: "css",
+    label: "CSS",
+    image: "/logos/css.svg",
+    keywords: [],
+  },
+];
+
+const backendSkills = [
+  {
+    value: "python",
+    label: "Python",
+    image: "/logos/python.svg",
+    keywords: [],
+  },
+  {
+    value: "node",
+    label: "NodeJS",
+    image: "/logos/nodejs.svg",
+    keywords: [],
+  },
+  {
+    value: "openapi",
+    label: "OpenAPI",
+    image: "/logos/openapi.svg",
+    keywords: [],
+  },
+  {
+    value: "postman",
+    label: "Postman",
+    image: "/logos/postman.svg",
+    keywords: [],
+  },
+  {
+    value: "fastapi",
+    label: "FastAPI",
+    image: "/logos/fastapi.svg",
+    keywords: [],
+  },
+  {
+    value: "c",
+    label: "C",
+    image: "/logos/c.svg",
+    keywords: [],
+  },
+  {
+    value: "cplusplus",
+    label: "C++",
+    image: "/logos/c-1.svg",
+    keywords: [],
+  },
+  {
+    value: "postgres",
+    label: "Postgres",
+    image: "/logos/postgresql.svg",
+    keywords: [],
+  },
+  {
+    value: "mongodb",
+    label: "MongoDB",
+    image: "/logos/mongodb.svg",
+    keywords: [],
+  },
+  {
+    value: "bash",
+    label: "Bash",
+    image: "/logos/bash.svg",
+    keywords: [],
+  },
+  {
+    value: "git",
+    label: "Git",
+    image: "/logos/git.svg",
+    keywords: [],
+  },
+  {
+    value: "github",
+    label: "Github",
+    image: "/logos/github.svg",
+    keywords: [],
+  },
+  {
+    value: "universe",
+    label: "Universe MV",
+    image: "/logos/universe.svg",
+    keywords: [],
+  },
+];
+
+const devopsSkills = [
+  {
+    value: "aws",
+    label: "AWS",
+    image: "/logos/aws-2.svg",
+    keywords: [],
+  },
+  {
+    value: "gcs",
+    label: "GCS",
+    image: "/logos/google-cloud-1.svg",
+    keywords: [],
+  },
+  {
+    value: "linux",
+    label: "Linux",
+    image: "/logos/linux-tux.svg",
+    keywords: [],
+  },
+  {
+    value: "vmware",
+    label: "VMware",
+    image: "/logos/vmware-1.svg",
+    keywords: [],
+  },
+  {
+    value: "docker",
+    label: "Docker",
+    image: "/logos/docker-4.svg",
+    keywords: [],
+  },
+  {
+    value: "kubernetes",
+    label: "Kubernetes",
+    image: "/logos/kubernets.svg",
+    keywords: [],
+  },
+  {
+    value: "netlify",
+    label: "Netlify",
+    image: "/logos/netlify.svg",
+    keywords: [],
+  },
+];
+
+const softSkills = [
+  {
+    value: "jira",
+    label: "Jira",
+    image: "/logos/jira-1.svg",
+    keywords: [],
+  },
+  {
+    value: "office",
+    label: "MS Office",
+    image: "/logos/office-1.svg",
+    keywords: [],
+  },
+  {
+    value: "thinking",
+    label: "Critical Thinking",
+    image: "/logos/brain.svg",
+    keywords: [],
+  },
+  {
+    value: "time",
+    label: "Time Management",
+    image: "/logos/clock.svg",
+    keywords: [],
+  },
+  {
+    value: "leadership",
+    label: "Leadership",
+    image: "/logos/leader.svg",
+    keywords: [],
+  },
+  {
+    value: "communication",
+    label: "Communication",
+    image: "/logos/phone.svg",
     keywords: [],
   },
 ];
 
 export default function Home() {
-  const avatar = require("../../../assets/images/avatar.png");
-  const react = require("../../../assets/logos/react.svg");
-
   return (
     <div className="flex justify-center w-full">
       <div className="flex-col justify-between w-[100%] sm:w-[100%] md:w-[80%] lg:w-[70%] xl:w-[65%] 2xl:w-[60%]">
@@ -58,7 +288,7 @@ export default function Home() {
                   <CardDescription className="flex flex-row items-center">
                     <MapPin size={16}></MapPin>
                     <span>Utah, USA</span>
-                    </CardDescription>
+                  </CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -93,13 +323,10 @@ export default function Home() {
               <CardTitle>Frontend & Design</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex items-center">
-                <Image
-                  className="h-6 w-6"
-                  src={require("../../../assets/logos/react.svg")}
-                  alt="react"
-                />
-                <div className="text-lg text-muted-foreground m-2">React</div>
+              <div className="flex flex-wrap items-center">
+                {frontendSkills.map((skill) => (
+                  <SkillItem key={skill.value} skill={skill} />
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -108,13 +335,10 @@ export default function Home() {
               <CardTitle>Backend</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex items-center">
-                <Image
-                  className="h-6 w-6"
-                  src={require("../../../assets/logos/react.svg")}
-                  alt="react"
-                />
-                <div className="text-lg text-muted-foreground m-2">React</div>
+              <div className="flex flex-wrap items-center">
+                {backendSkills.map((skill) => (
+                  <SkillItem key={skill.value} skill={skill} />
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -123,13 +347,10 @@ export default function Home() {
               <CardTitle>Cloud & DevOps</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex items-center">
-                <Image
-                  className="h-6 w-6"
-                  src={require("../../../assets/logos/react.svg")}
-                  alt="react"
-                />
-                <div className="text-lg text-muted-foreground m-2">React</div>
+              <div className="flex flex-wrap items-center">
+                {devopsSkills.map((skill) => (
+                  <SkillItem key={skill.value} skill={skill} />
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -138,13 +359,10 @@ export default function Home() {
               <CardTitle>Management & Soft skills</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex items-center">
-                <Image
-                  className="h-6 w-6"
-                  src={require("../../../assets/logos/react.svg")}
-                  alt="react"
-                />
-                <div className="text-lg text-muted-foreground m-2">React</div>
+              <div className="flex flex-wrap items-center">
+                {softSkills.map((skill) => (
+                  <SkillItem key={skill.value} skill={skill} />
+                ))}
               </div>
             </CardContent>
           </Card>
