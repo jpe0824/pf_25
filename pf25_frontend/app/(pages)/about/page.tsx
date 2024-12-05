@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { HoverAvatar } from "@/components/ui/hover-avatar";
 // import {
 //   Dialog,
 //   DialogContent,
@@ -18,6 +19,7 @@ import {
 //   DialogTrigger,
 // } from "@/components/ui/dialog";
 import {
+  Download,
   Github,
   Linkedin,
   Mail,
@@ -138,18 +140,18 @@ const backendSkills = [
     image: "/logos/fastapi.svg",
     keywords: [],
   },
-  {
-    value: "c",
-    label: "C",
-    image: "/logos/c.svg",
-    keywords: [],
-  },
-  {
-    value: "cplusplus",
-    label: "C++",
-    image: "/logos/c-1.svg",
-    keywords: [],
-  },
+  // {
+  //   value: "c",
+  //   label: "C",
+  //   image: "/logos/c.svg",
+  //   keywords: [],
+  // },
+  // {
+  //   value: "cplusplus",
+  //   label: "C++",
+  //   image: "/logos/c-1.svg",
+  //   keywords: [],
+  // },
   {
     value: "postgres",
     label: "Postgres",
@@ -168,18 +170,7 @@ const backendSkills = [
     image: "/logos/bash.svg",
     keywords: [],
   },
-  {
-    value: "git",
-    label: "Git",
-    image: "/logos/git.svg",
-    keywords: [],
-  },
-  {
-    value: "github",
-    label: "Github",
-    image: "/logos/github.svg",
-    keywords: [],
-  },
+
   {
     value: "universe",
     label: "Universe MV",
@@ -195,12 +186,12 @@ const backendSkills = [
 ];
 
 const devopsSkills = [
-  {
-    value: "aws",
-    label: "AWS",
-    image: "/logos/aws-2.svg",
-    keywords: [],
-  },
+  // {
+  //   value: "aws",
+  //   label: "AWS",
+  //   image: "/logos/aws-2.svg",
+  //   keywords: [],
+  // },
   {
     value: "gcs",
     label: "GCS",
@@ -235,6 +226,18 @@ const devopsSkills = [
     value: "netlify",
     label: "Netlify",
     image: "/logos/netlify.svg",
+    keywords: [],
+  },
+  {
+    value: "git",
+    label: "Git",
+    image: "/logos/git.svg",
+    keywords: [],
+  },
+  {
+    value: "github",
+    label: "Github",
+    image: "/logos/github.svg",
     keywords: [],
   },
 ];
@@ -292,11 +295,21 @@ export default function Home() {
           <Card>
             <CardHeader>
               <div className="flex flex-row items-center">
-                <Avatar className="rounded-full">
-                  <AvatarImage src="/images/avatar.png" />
-                  <AvatarFallback>JE</AvatarFallback>
-                </Avatar>
-                <div className="flex flex-col px-4">
+                <div className="group relative inline-block">
+                  <div className="absolute -inset-y-8 z-10">
+                    <Avatar className="group-hover:opacity-0 rounded-full">
+                      <AvatarImage src="/images/avatar.png" />
+                      <AvatarFallback>JE</AvatarFallback>
+                    </Avatar>
+                  </div>
+                  <div className="absolute -inset-y-8  z-10">
+                    <Avatar className="opacity-0 group-hover:opacity-100 rounded-full">
+                      <AvatarImage src="/images/avatar2.png" />
+                      <AvatarFallback>JE</AvatarFallback>
+                    </Avatar>
+                  </div>
+                </div>
+                <div className="flex flex-col px-20">
                   <CardTitle>Jason Edman</CardTitle>
                   <CardDescription>
                     Full Stack Software Engineer
@@ -340,12 +353,14 @@ export default function Home() {
                 </DialogContent>
               </Dialog> */}
               <div className="flex">
-                <Button variant="ghost" className="">
-                  <a href={`tel:${3073899307}`}>
-                    <Phone color="dodgerblue" />
-                  </a>
+                <Button
+                  variant="outline"
+                  className="border-dodgerblue bg-gradient-to-r hover:from-dodgerblue hover:to-sky-500"
+                >
+                  Resume
+                  <Download />
                 </Button>
-                <Button variant="ghost">
+                <Button variant="ghost" className="ml-4">
                   <a href={`mailto:${"jason.e24@gmail.com"}`}>
                     <Mail color="#FDB927" />
                   </a>
@@ -374,64 +389,67 @@ export default function Home() {
               </div>
             </CardFooter>
           </Card>
+          <div className="flex flex-col" id="experience">
+            <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
+              Experience
+            </h1>
+            <ExperienceTimeline />
+          </div>
           <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
             Skills & Tech Stack
           </h1>
-          <Card className="my-4">
-            <CardHeader>
-              <CardTitle>Frontend & Design</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap items-center">
-                {frontendSkills.map((skill) => (
-                  <SkillItem key={skill.value} skill={skill} />
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="my-4">
-            <CardHeader>
-              <CardTitle>Backend</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap items-center">
-                {backendSkills.map((skill) => (
-                  <SkillItem key={skill.value} skill={skill} />
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="my-4">
-            <CardHeader>
-              <CardTitle>Cloud & DevOps</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap items-center">
-                {devopsSkills.map((skill) => (
-                  <SkillItem key={skill.value} skill={skill} />
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="my-4">
-            <CardHeader>
-              <CardTitle>Management & Soft skills</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap items-center">
-                {softSkills.map((skill) => (
-                  <SkillItem key={skill.value} skill={skill} />
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>Frontend & Design</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap items-center">
+                  {frontendSkills.map((skill) => (
+                    <SkillItem key={skill.value} skill={skill} />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Backend</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap items-center">
+                  {backendSkills.map((skill) => (
+                    <SkillItem key={skill.value} skill={skill} />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Cloud & DevOps</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap items-center">
+                  {devopsSkills.map((skill) => (
+                    <SkillItem key={skill.value} skill={skill} />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Management & Soft skills</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap items-center">
+                  {softSkills.map((skill) => (
+                    <SkillItem key={skill.value} skill={skill} />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-        <div className="flex flex-col" id="experience">
-          <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
-            Experience
-          </h1>
-          <ExperienceTimeline />
-        </div>
+
         <div className="flex flex-col h-screen" id="projects">
           <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
             Projects

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sidebar,
   SidebarContent,
@@ -18,12 +20,9 @@ import {
   Mail,
   MessageSquare,
   Newspaper,
-  Phone,
-  Scroll,
 } from "lucide-react";
 import { TypedWords } from "./typed-words";
 import { ModeToggle } from "./mode-toggle";
-import dynamic from "next/dynamic";
 
 const items = [
   {
@@ -45,11 +44,6 @@ const items = [
     title: "Projects",
     url: "/about/#projects",
     icon: Computer,
-  },
-  {
-    title: "Resume",
-    url: "/resume",
-    icon: Scroll,
   },
 ];
 
@@ -81,14 +75,6 @@ export function AppSidebar() {
           <SidebarGroupLabel>Contact & Socials</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              <SidebarMenuItem key={"Phone"}>
-                <SidebarMenuButton asChild>
-                  <a href={`tel:${3073899307}`}>
-                    <Phone />
-                    <span>Phone</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
               <SidebarMenuItem key={"Email"}>
                 <SidebarMenuButton asChild>
                   <a href={`mailto:${"jason.e24@gmail.com"}`}>

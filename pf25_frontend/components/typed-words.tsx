@@ -6,7 +6,6 @@ import {
   TypewriterEffect,
   TypewriterEffectSmooth,
 } from "./ui/typewriter-effect";
-import dynamic from "next/dynamic";
 
 const words = [
   [{ text: "Hi 👋" }, { text: "I'm" }, { text: "Jason" }],
@@ -23,6 +22,10 @@ export function TypedWords() {
   const [currentWords, setCurrentWords] = useState(
     words[Math.floor(Math.random() * words.length)]
   );
+
+  useEffect(() => {
+    setCurrentWords(words[Math.floor(Math.random() * words.length)])
+  }, [])
 
   return (
     <div className="flex flex-row items-center mx-2">
