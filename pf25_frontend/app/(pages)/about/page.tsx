@@ -1,4 +1,7 @@
+"use client";
+
 import { ExperienceTimeline } from "@/components/experience-timeline";
+import { Footer } from "@/components/footer";
 import { ProjectTimeline } from "@/components/project-timeline";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -28,6 +31,7 @@ import {
   MoveUp,
   Phone,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 // import Image from "next/image";
 import React from "react";
 
@@ -282,11 +286,13 @@ const softSkills = [
 ];
 
 export default function Home() {
+  const router = useRouter();
+
   return (
-    <div className="flex justify-center w-full">
+    <div className="flex flex-col justify-center items-center w-full">
       <div className="flex-col justify-between w-[100%] sm:w-[100%] md:w-[80%] lg:w-[70%] xl:w-[65%] 2xl:w-[60%]">
         <div className="flex justify-center">
-          <Button variant="ghost">
+          <Button variant="ghost" onClick={() => router.push("/feed")}>
             <MoveUp />
             <span>Feed</span>
           </Button>
@@ -310,7 +316,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex flex-col px-20">
-                  <CardTitle>Jason Edman</CardTitle>
+                  <CardTitle className="text-neutral-700 dark:text-neutral-300">
+                    Jason Edman
+                  </CardTitle>
                   <CardDescription>
                     Full Stack Software Engineer
                   </CardDescription>
@@ -321,8 +329,8 @@ export default function Home() {
                 </div>
               </div>
             </CardHeader>
-            <CardContent>
-              <p>
+            <CardContent className="text-neutral-800 dark:text-neutral-200">
+              <p className="mb-4 md:mb-2">
                 Experienced software engineer with a focus on full stack
                 development.
               </p>
@@ -356,9 +364,12 @@ export default function Home() {
                 <Button
                   variant="outline"
                   className="border-dodgerblue bg-gradient-to-r hover:from-dodgerblue hover:to-sky-500"
+                  asChild
                 >
-                  Resume
-                  <Download />
+                  <a href="/files/jasonedmanCV.pdf" download>
+                    Resume
+                    <Download />
+                  </a>
                 </Button>
                 <Button variant="ghost" className="ml-4">
                   <a href={`mailto:${"jason.e24@gmail.com"}`}>
@@ -390,18 +401,20 @@ export default function Home() {
             </CardFooter>
           </Card>
           <div className="flex flex-col" id="experience">
-            <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
+            <h1 className="text-xl md:text-3xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2 text-neutral-700 dark:text-neutral-300">
               Experience
             </h1>
             <ExperienceTimeline />
           </div>
-          <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
+          <h1 className="text-xl md:text-3xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2 text-neutral-700 dark:text-neutral-300">
             Skills & Tech Stack
           </h1>
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle>Frontend & Design</CardTitle>
+                <CardTitle className="text-lg md:text-2xl text-neutral-500">
+                  Frontend & Design
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap items-center">
@@ -413,7 +426,9 @@ export default function Home() {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Backend</CardTitle>
+                <CardTitle className="text-lg md:text-2xl text-neutral-500">
+                  Backend
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap items-center">
@@ -425,7 +440,9 @@ export default function Home() {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Cloud & DevOps</CardTitle>
+                <CardTitle className="text-lg md:text-2xl text-neutral-500">
+                  Cloud & DevOps
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap items-center">
@@ -437,7 +454,9 @@ export default function Home() {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle>Management & Soft skills</CardTitle>
+                <CardTitle className="text-lg md:text-2xl text-neutral-500">
+                  Management & Soft skills
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap items-center">
@@ -450,13 +469,14 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col h-screen" id="projects">
-          <h1 className="text-2xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2">
+        <div className="flex flex-col" id="projects">
+          <h1 className="text-xl md:text-3xl font-semibold leading-none tracking-tight mt-10 mb-5 ml-2 text-neutral-700 dark:text-neutral-300">
             Projects
           </h1>
           <ProjectTimeline />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
