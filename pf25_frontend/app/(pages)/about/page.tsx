@@ -13,7 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { HoverAvatar } from "@/components/ui/hover-avatar";
 // import {
 //   Dialog,
 //   DialogContent,
@@ -29,7 +28,6 @@ import {
   MapPin,
   MessageSquare,
   MoveUp,
-  Phone,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 // import Image from "next/image";

@@ -57,7 +57,7 @@ export function ProjectTimeline() {
             <Badge className="m-1">MongoDB</Badge>
             <Badge className="m-1">GCS</Badge>
             <Badge className="m-1">Docker</Badge>
-            <Badge className="m-1">OpenAI GPT's</Badge>
+            <Badge className="m-1">OpenAI GPTs</Badge>
           </div>
         </div>
       ),

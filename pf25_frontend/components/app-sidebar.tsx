@@ -21,7 +21,7 @@ import {
   MessageSquare,
   Newspaper,
 } from "lucide-react";
-import { TypedWords } from "./typed-words";
+// import { TypedWords } from "./typed-words";
 import { ModeToggle } from "./mode-toggle";
 
 const items = [
@@ -49,10 +49,8 @@ const items = [
 
 export function AppSidebar() {
   return (
-    <Sidebar>
-      <SidebarHeader>
-        {/* <TypedWords /> Disabled for now, needs fix */}
-      </SidebarHeader>
+    <Sidebar variant="floating">
+      <SidebarHeader>{/* <TypedWords /> */}</SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Portfolio</SidebarGroupLabel>
