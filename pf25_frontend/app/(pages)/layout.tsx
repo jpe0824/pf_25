@@ -20,8 +20,10 @@ export default async function Layout({
     >
       <SidebarProvider defaultOpen={defaultOpen}>
         <AppSidebar />
-        <main className="flex justify-start w-screen">
-          <SidebarTrigger className="fixed m-2"/>
+        <main className="flex w-screen">
+          <div className="fixed z-40">
+            <SidebarTrigger className="m-2" />
+          </div>
           {children}
         </main>
       </SidebarProvider>
